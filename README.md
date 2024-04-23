@@ -50,4 +50,5 @@
         ```
     - Después ejecutamos:
         - **_composer update_**
-
+        - Nota: Cada vez que agregue o modifiquemos algo de: **_composer.json_**, tenemos que ejecutar:
+            - **_composer update_**
