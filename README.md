@@ -26,4 +26,16 @@
 
 #### Primeros Pasos
 
--
+- **_npm install_**
+- **_npm run gulp_**
+    - Se crea el: **_build_**
+- **_composer init_**
+    - omar/barber
+    - proyecto php 8, mvc, mysql, sass, gulp
+    - enter
+    - project
+    - (require) interactively: NO
+    - (require-dev) interactively: NO
+    - confirm generation?: yes
+        - Se crea el: **_composer.json_**
+        
