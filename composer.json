@@ -1,0 +1,19 @@
+{
+    "name": "omar/barber",
+    "description": "proyecto para barberia con html, sass, javascript, php, mysql",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models"
+        }
+    },
+    "authors": [
+        {
+            "name": "Omar Garcia",
+            "email": "za19012225@zapopan.tecmm.edu.mx"
+        }
+    ],
+    "require": {}
+}

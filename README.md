@@ -37,5 +37,17 @@
     - (require) interactively: NO
     - (require-dev) interactively: NO
     - confirm generation?: yes
-        - Se crea el: **_composer.json_**
-        
+        - Se crea el: **_composer.json_** y el **_vendor_**
+    - En el archivo: **_composer.json_**, configuramos lo siguiente:
+        ```
+            "autoload": {
+                "psr-4": {
+                    "MVC\\": "./",
+                    "Controllers\\" : "./controllers",
+                    "Model\\" : "./models"
+                }
+            },
+        ```
+    - Después ejecutamos:
+        - **_composer update_**
+
