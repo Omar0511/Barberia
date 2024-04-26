@@ -24,7 +24,10 @@
             echo "RECUPERAR";
         }
 
-        public static function crear() {
-            echo "CREAR";
+        public static function crear(Router $router) {
+            
+            $router->render('auth/crear-cuenta', [
+
+            ]);
         }
     }
