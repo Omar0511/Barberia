@@ -10,6 +10,6 @@
 <body>
 
     <?php echo $contenido; ?>
-            
+
 </body>
 </html>

@@ -3,3 +3,4 @@ build/
 .env
 includes/database.php
 /vendor/
+.DS_Store
