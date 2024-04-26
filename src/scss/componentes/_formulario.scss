@@ -1,0 +1,31 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario {
+    width: 100%;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: center;
+
+    label {
+        // Hace que los LABEL midan lo mismo
+        flex: 0 0 10rem;
+    }
+
+    input {
+        // Hace que tome el resto del tamaño el INPUT
+        flex: 1;
+        // Le quita todo el INPUT, es decir; lo deja sin color de fondo, como si fuera transparente
+        // all: unset;
+        border: none;
+        padding: calc(v.$separacion/4);
+        border-radius: 1rem;
+        -webkit-border-radius: 1rem;
+        -moz-border-radius: 1rem;
+        -ms-border-radius: 1rem;
+        -o-border-radius: 1rem;
+    }
+}
