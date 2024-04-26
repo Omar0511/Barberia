@@ -16,8 +16,10 @@
             echo "ADIÓS";
         }
 
-        public static function olvide() {
-            echo "OLVIDE";
+        public static function olvide(Router $router) {
+            $router->render('auth/olvide-password', [
+
+            ]);
         }
 
         public static function recuperar() {
