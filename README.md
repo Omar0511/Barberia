@@ -57,3 +57,21 @@
 
 - utf8
 - utf8_general_ci
+
+    ## Restricciones de Integridad Referencial
+    
+    - Ejemplo en tabla:
+        - **Barbaeria**
+        - ![alt text](image.png)
+        - Damos click sobre: **usarioId** para que nos despliegue lo siguiente:
+        ![alt text](image-1.png)
+            - **_NO ACTION / RESTRICT_**:
+                - (Son lo mismo), Van a RESTRINGIR y no van a permitir eliminar un registro que ya esta en otra tabla
+            - **_CASCADE_**
+                - Si eliminas el PADRE, eliminará los dependientes también
+            - **_SET NULL_**
+                - Ejemplo, si tenenmos un USUARIO y en CITAS estaba relacionado con el USUARIO que creo esa cita, si borramos al USUARIO lo que hace es ELIMINAR al USUARIO, pero en CITAS solo pondrá el campo de: usuarioID a NULL, es decir; borra el USUARIO pero no BORRA los datos, lo que estaba relacionado lo pondrá en NULL.
+            - **_SET DEFAULT_**
+                - 
+    - Las tablas que tiene llaves FORÁNEAS, se dejan en:
+        - **_SET NULL:**
