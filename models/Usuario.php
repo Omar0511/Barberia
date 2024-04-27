@@ -40,4 +40,17 @@
             $this->token = $args['token'] ?? '';
         }
 
+        // Mensajes de validación para creación de cuenta
+        public function validarNuevaCuenta() {
+            if (!$this->nombre) {
+                self::$alertas['error'][] = 'El Nombre del Cliente es obligatorio';
+            }
+
+            if (!$this->apellido) {
+                self::$alertas['error'][] = 'El Apellido del Cliente es obligatorio';
+            }
+
+            return self::$alertas;
+        }
+
     }

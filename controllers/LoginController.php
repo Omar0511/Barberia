@@ -29,12 +29,14 @@
 
         public static function crear(Router $router) {
             $usuario = new Usuario;
+            // debuguear($usuario);
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Pasar los datos que tenemos en POST
-                // $usuario = new Usuario($_POST);
+                // Sincronizar los datos que tenemos en POST
                 $usuario->sincronizar($_POST);
-                // debuguear($usuario);
+
+                $alertas = $usuario->validarNuevaCuenta();
+                debuguear($alertas);
             }
             
             $router->render('auth/crear-cuenta', [
