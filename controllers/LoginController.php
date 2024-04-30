@@ -40,6 +40,12 @@
 
                 $alertas = $usuario->validarNuevaCuenta();
                 // debuguear($alertas);
+
+                // Revisar que alerta este vacía
+                if ( empty($alertas) ) {
+                    
+                }
+
             }
             
             $router->render('auth/crear-cuenta', [

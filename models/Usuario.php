@@ -50,6 +50,16 @@
                 self::$alertas['error'][] = 'El Apellido del Cliente es obligatorio';
             }
 
+            if (!$this->email) {
+                self::$alertas['error'][] = 'ElE-mail es obligatorio';
+            }
+
+            if (!$this->password) {
+                self::$alertas['error'][] = 'El Password es obligatorio';
+            } else if ($this->password < 6) {
+                self::$alertas['error'][] = 'El Password debe contener al menos 6 carácteres';
+            }
+
             return self::$alertas;
         }
 
