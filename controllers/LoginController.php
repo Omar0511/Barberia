@@ -47,8 +47,11 @@
 
                     if ($resultado->num_rows) {
                         $alertas = Usuario::getAlertas();
+                    } else {
+                        // Hashear Password
+                        $usuario->hashPassword();
                     }
-                    
+
                 }
 
             }
