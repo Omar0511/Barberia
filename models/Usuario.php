@@ -80,4 +80,8 @@
             $this->password = password_hash($this->password, PASSWORD_BCRYPT);
         }
 
+        public function crearToken() {
+            $this->token = uniqid();
+        }
+
     }
