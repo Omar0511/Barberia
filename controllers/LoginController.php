@@ -43,6 +43,11 @@
 
                 // Revisar que alerta este vacía
                 if ( empty($alertas) ) {
+                    $resultado = $usuario->existeUsuario();
+
+                    if ($resultado->num_rows) {
+                        $alertas = Usuario::getAlertas();
+                    }
                     
                 }
 

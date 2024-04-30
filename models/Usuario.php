@@ -63,4 +63,17 @@
             return self::$alertas;
         }
 
+        // Revisa si el usuario existe
+        public function existeUsuario() {
+            $query = "SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1";
+            
+            $resultado = self::$db->query($query);
+
+            if ($resultado->num_rows) {
+                self::$alertas['error'][] = 'El Usuario ya esta registrado';
+            }
+
+            return $resultado;
+        }
+
     }
