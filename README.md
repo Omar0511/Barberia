@@ -11,6 +11,7 @@
 - COMPOSER
 - MAILTRAP
 - PHPMAILER
+    - **_composer require phpmailer/phpmailer_**
 - MYSQL
 - PHP (MVC)
 - SWEET ALERT2

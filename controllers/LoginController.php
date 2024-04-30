@@ -2,6 +2,7 @@
 
     namespace Controllers;
 
+    use Classes\Email;
     use Model\Usuario;
     use MVC\Router;
 
@@ -50,6 +51,11 @@
                     } else {
                         // Hashear Password
                         $usuario->hashPassword();
+
+                        // Generar un token único
+                        $usuario->crearToken();
+
+                        $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
                     }
 
                 }
