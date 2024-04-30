@@ -3,6 +3,8 @@
 
 <!-- <?php //debuguear($usuario); ?> -->
 
+<?php include_once __DIR__ . "/../templates/alertas.php"; ?>
+
 <form action="/crear-cuenta" class="formulario" method="POST">
     <div class="campo">
         <label for="nombre">Nombre</label>

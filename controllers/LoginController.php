@@ -31,16 +31,20 @@
             $usuario = new Usuario;
             // debuguear($usuario);
 
+            // Alertas vacías
+            $alertas = [];
+
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Sincronizar los datos que tenemos en POST
                 $usuario->sincronizar($_POST);
 
                 $alertas = $usuario->validarNuevaCuenta();
-                debuguear($alertas);
+                // debuguear($alertas);
             }
             
             $router->render('auth/crear-cuenta', [
                 'usuario' => $usuario,
+                'alertas' => $alertas,
             ]);
         }
     }
