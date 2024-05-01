@@ -55,7 +55,12 @@
                         // Generar un token único
                         $usuario->crearToken();
 
+                        // Enviar E-mail
                         $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
+
+                        $email->enviarConfirmacion();
+
+                        debuguear($usuario);
                     }
 
                 }

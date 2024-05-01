@@ -10,6 +10,16 @@
 - ACTIVE RECORD
 - COMPOSER
 - MAILTRAP
+    - Integrations: **_PHPMailer_**
+    ```
+        $phpmailer = new PHPMailer();
+        $phpmailer->isSMTP();
+        $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+        $phpmailer->SMTPAuth = true;
+        $phpmailer->Port = 2525;
+        $phpmailer->Username = 'te lo da la página';
+        $phpmailer->Password = 'te lo da la página';
+    ```
 - PHPMAILER
     - **_composer require phpmailer/phpmailer_**
 - MYSQL
