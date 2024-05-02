@@ -86,5 +86,19 @@
 
             ]);
         }
+
+        public static function confirmar(Router $router) {
+            $alertas = [];
+
+            $token = s($_GET['token']);
+
+            $usuario = Usuario::where('usuario', $token);
+
+            
+
+            $router->render('auth/confirmar', [
+                'alertas' => $alertas,
+            ]);
+        }
         
     }
