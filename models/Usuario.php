@@ -96,8 +96,10 @@
             $this->token = uniqid();
         }
 
-        public function comprobarPasswordAndVerificado() {
-            debuguear($this);
+        public function comprobarPasswordAndVerificado($password) {
+            $resultado = password_verify($password, $this->password);
+
+            // debuguear($resultado);
         }
 
     }
