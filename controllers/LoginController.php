@@ -23,7 +23,27 @@
 
                     if ($usuario) {
                         // Verificar el Password
-                        $usuario->comprobarPasswordAndVerificado($auth->password);
+                        if ( $usuario->comprobarPasswordAndVerificado($auth->password) ) {
+                            // Autenticar Usuario
+                            session_start();
+                            // Una vez que inicias sesión, tenemos acceso a la SUPER GLOBAL: $_SESSION
+                            $_SESSION['id'] = $usuario->id;
+                            $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido;
+                            $_SESSION['email'] = $usuario->email;
+                            $_SESSION['login'] = true;
+
+                            // Redirrecionamiento
+                            // debuguear($usuario->admin);
+                            if ($usuario->admin === "1") {
+                                $_SESSION['admin'] = $usuario->admin ?? null;
+
+                                header('Location: /admin');
+                            } else {
+                                header('Location: /cita');
+                            }
+
+                            // debuguear($_SESSION);
+                        }
                         // debuguear($usuario);
                     } else {
                         Usuario::setAlerta('error', 'Usuario no encontrado');
