@@ -34,8 +34,8 @@
             $mail->CharSet = 'UTF-8';
 
             $contenido = "<html>";
-            $contenido .= "<p> Hola <strong> " . $this->email . " </strong> Has creado tu cuenta en RudeBoys Barber, solo debes confirmarla presionando el siguiente enlace: </p>";
-            $contenido .= "<p>Presiona aquí -> <a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a> <-</p>";
+            $contenido .= "<p> Hola <strong> " . strtoupper($this->email) . " </strong>! Has creado tu cuenta en RudeBoys Barber, solo debes confirmarla presionando el siguiente enlace: </p>";
+            $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a></p>";
             $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar el mensaje</p>";
             $contenido .= "</html>";
 

@@ -60,7 +60,14 @@
 
                         $email->enviarConfirmacion();
 
-                        debuguear($usuario);
+                        // Crear el Usuario
+                        $resultado = $usuario->guardar();
+
+                        if ($resultado) {
+                            header('Location: /mensaje');
+                        }
+
+                        // debuguear($usuario);
                     }
 
                 }
@@ -72,4 +79,12 @@
                 'alertas' => $alertas,
             ]);
         }
+
+        public static function mensaje(Router $router) {
+
+            $router->render('auth/mensaje', [
+
+            ]);
+        }
+        
     }

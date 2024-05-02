@@ -18,7 +18,7 @@
 
     <div class="campo">
         <label for="telefono">Teléfono</label>
-        <input type="tel" name="Telefono" id="Telefono" placeholder="Ingresa tu Teléfono" value="<?php echo s($usuario->telefono); ?>">
+        <input type="tel" name="telefono" id="telefono" placeholder="Ingresa tu Teléfono" value="<?php echo s($usuario->telefono); ?>">
     </div>
 
     <div class="campo">
