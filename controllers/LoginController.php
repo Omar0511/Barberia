@@ -92,11 +92,25 @@
 
             $token = s($_GET['token']);
 
-            $usuario = Usuario::where('usuario', $token);
+            $usuario = Usuario::where('token', $token);
 
-            
+            if ( empty($usuario) ) {
+                // Mostrar mensaje de error
+                Usuario::setAlerta('error', 'Token No Válido');
+            } else {
+                // Modificar a usuario confirmado
+                // debuguear($usuario);
+                $usuario->confirmado = "1";
+                // $usuario->token = null;
+                $usuario->token = "";
+                $usuario->guardar();
 
-            $router->render('auth/confirmar', [
+                Usuario::setAlerta('exito', 'Cuenta Comprobada Correctamente');
+            }
+
+            $alertas = Usuario::getAlertas();
+
+            $router->render('auth/confirmar-cuenta', [
                 'alertas' => $alertas,
             ]);
         }
