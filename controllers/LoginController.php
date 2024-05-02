@@ -16,8 +16,25 @@
                 $auth = new Usuario($_POST);
 
                 $alertas = $auth->validarLogin();
+
+                if ( empty($alertas) ) {
+                    // Comprobar que exista el usuario
+                    $usuario = Usuario::where('email', $auth->email);
+
+                    if ($usuario) {
+                        // Verificar el Password
+                        $usuario->comprobarPasswordAndVerificado();
+                        // debuguear($usuario);
+                    } else {
+                        Usuario::setAlerta('error', 'Usuario no encontrado');
+                    }
+
+                }
+
             }
             
+            $alertas = Usuario::getAlertas();
+
             $router->render('auth/login', [
                 'alertas' => $alertas,
                 'auth' => $auth,
