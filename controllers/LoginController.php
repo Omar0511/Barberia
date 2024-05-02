@@ -23,7 +23,7 @@
 
                     if ($usuario) {
                         // Verificar el Password
-                        $usuario->comprobarPasswordAndVerificado($auth->email);
+                        $usuario->comprobarPasswordAndVerificado($auth->password);
                         // debuguear($usuario);
                     } else {
                         Usuario::setAlerta('error', 'Usuario no encontrado');
