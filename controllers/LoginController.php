@@ -104,9 +104,25 @@
 
         public static function recuperar(Router $router) {
             $alertas = [];
-            
+            $error = false;
+
+            $token = s($_GET['token']);
+
+            // Buscar usuario por su TOKEN
+            $usuario = Usuario::where('token', $token);
+
+            if ( empty($usuario) ) {
+                Usuario::setAlerta('error', 'Token No Válido');
+                $error = true;
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Leer el nuevo Password y Guardar
+            }
+
             $router->render('auth/recuperar-password', [
                 'alertas' => $alertas,
+                'error' => $error,
             ]);
         }
 
