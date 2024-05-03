@@ -102,8 +102,12 @@
             ]);
         }
 
-        public static function recuperar() {
-            echo "RECUPERAR";
+        public static function recuperar(Router $router) {
+            $alertas = [];
+            
+            $router->render('auth/recuperar-password', [
+                'alertas' => $alertas,
+            ]);
         }
 
         public static function crear(Router $router) {
