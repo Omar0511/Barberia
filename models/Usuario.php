@@ -1,6 +1,5 @@
 <?php
     namespace Model;
-
     class Usuario extends ActiveRecord {
         // Base de datos
         protected static $tabla = 'usuarios';
@@ -79,7 +78,7 @@
             if (!$this->email) {
                 self::$alertas['error'][] = 'El E-mail es obligatorio';
             }
-            
+
             return self::$alertas;
         }
 

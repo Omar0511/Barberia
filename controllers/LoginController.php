@@ -76,15 +76,26 @@
                     $usuario = Usuario::where('email', $auth->email);
 
                     if ($usuario && $usuario->confirmado === "1") {
+                        // Generar Token
+                        $usuario->crearToken();
 
+                        $usuario->guardar();
+
+                        // Enviar E-mail
+                        $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+
+                        $email->enviarInstrucciones();
+
+                        Usuario::setAlerta('exito', 'Revisa tu E-mail');
                     } else {
                         Usuario::setAlerta('error', 'El Usuario no existe oh no esta confirmado');
-                        $alertas = Usuario::getAlertas();
                     }
 
                 }
 
             }
+
+            $alertas = Usuario::getAlertas();
 
             $router->render('auth/olvide-password', [
                 'alertas' => $alertas,
@@ -123,7 +134,7 @@
                         $usuario->crearToken();
 
                         // Enviar E-mail
-                        $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
+                        $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
 
                         $email->enviarConfirmacion();
 
