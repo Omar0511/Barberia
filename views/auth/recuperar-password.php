@@ -7,7 +7,7 @@
     if ($error) return;
 ?>
 
-<form action="">
+<form class="formulario" method="POST">
     <div class="campo">
         <label for="password">Password</label>
         <input type="password" name="password" id="password" placeholder="Ingresa tu Nuevo Password">
