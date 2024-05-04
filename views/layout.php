@@ -15,5 +15,8 @@
             <?php echo $contenido; ?>
         </div>
     </div>
+
+    <!-- Es para agregar el script de JAVASCRIPT, sino esta el SCRIPT, será vacío -->
+    <?php echo $script ?? ''; ?>
 </body>
 </html>
