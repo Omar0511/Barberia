@@ -86,3 +86,21 @@
                 - 
     - Las tablas que tiene llaves FORÁNEAS, se dejan en:
         - **_SET NULL:**
+
+#### API
+
+- Application Programming Interface
+
+    ## ¿Qué es?
+        - Es básicamente una capa de abstracción que nos permite conectarnos a un servicio.
+        - Usualmente una API debe soportar los 4 verbos del CRUD.
+        - Tiene una forma muy organizada de poner a disposición los datos.
+        - Una REST API cuenta con Endpoints (o URLS) para hacer operaciones CRUD.
+        - Ejemplo:
+            - Listar los clientes GET /clientes
+            - Obtener 1 solo cliente GET /clientes/10
+            - Crear nuevo cliente POST /clientes
+            - Editar un contacto PUT /clientes/3
+            - Borrar un contacto DELETE /clientes/8
+        - Usualmente una API es creada en JSON.
+        
