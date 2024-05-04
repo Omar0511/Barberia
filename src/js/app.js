@@ -1,4 +1,7 @@
 let paso = 1;
+const pasoInicial = 1;
+const pasoFinal = 3;
+
 // Cuando todo el DOM este cargado, se va ejecutar esta función
 document.addEventListener('DOMContentLoaded', function() {
     iniciarApp();
@@ -11,6 +14,9 @@ function iniciarApp() {
     tabs();
     // Agrega o quita los botones del paginador
     botonesPaginador();
+
+    paginaAnterior();
+    paginaSiguiente();
 }
 
 function mostrarSeccion() {
@@ -74,4 +80,34 @@ function botonesPaginador() {
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.remove('ocultar');
     }
+
+    mostrarSeccion();
+}
+
+function paginaAnterior() {
+    const paginaAnterior = document.querySelector('#anterior');
+    paginaAnterior.addEventListener('click', function() {
+        if (paso <= pasoInicial) {
+            return;
+        }
+
+        paso --;
+
+        // console.log(paso);
+        botonesPaginador();
+    });
+}
+
+function paginaSiguiente() {
+    const paginaSiguiente = document.querySelector('#siguiente');
+    paginaSiguiente.addEventListener('click', function() {
+        if (paso >= pasoFinal) {
+            return;
+        }
+
+        paso ++;
+
+        // console.log(paso);
+        botonesPaginador();
+    });
 }
