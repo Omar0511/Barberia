@@ -10,7 +10,7 @@
 
     <div id="paso-1" class="seccion">
         <h2>Servicios</h2>
-        <p class="text-center">Elige tus servicios a continuacion</p>
+        <p id="servicios" class="listado-servicios">Elige tus servicios a continuacion</p>
     </div>
 
     <div id="paso-2" class="seccion">

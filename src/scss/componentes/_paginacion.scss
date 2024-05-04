@@ -13,3 +13,12 @@
         margin: 0 0 1rem 0;
     }
 }
+
+// .ocultar {
+//     display: none;
+// }
+
+// Esto ayuda a que aunque no aparezca, ocupe su espacio en el dom
+.ocultar {
+    visibility: hidden;
+}
