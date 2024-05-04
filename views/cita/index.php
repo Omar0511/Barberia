@@ -10,7 +10,10 @@
 
     <div id="paso-1" class="seccion">
         <h2>Servicios</h2>
-        <p id="servicios" class="listado-servicios">Elige tus servicios a continuacion</p>
+        <p class="text-center">Elige tus servicios a continuacion</p>
+        <div id="servicios" class="listado-servicios">
+            <!-- Aqui se inyecta lo de la API mediante JAVASCRIPT -->
+        </div>
     </div>
 
     <div id="paso-2" class="seccion">

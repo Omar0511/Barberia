@@ -120,9 +120,37 @@ async function consultarAPI() {
         const resultado = await fetch(url);
         const servicios = await resultado.json();
 
-        console.log(servicios);
-
+        // console.log(servicios);
+        mostrarServicios(servicios);
     } catch (error) {
         console.log(error);
     }
+
+}
+
+function mostrarServicios(servicios) {
+    servicios.forEach( servicio => {
+        // Destructuración
+        const { id, nombre, precio } = servicio;
+
+        // Creamos un parráfo
+        const nombreServicio = document.createElement('P');
+        nombreServicio.classList.add('nombre-servicio');
+        nombreServicio.textContent = nombre;
+
+        const precioServicio = document.createElement('P');
+        precioServicio.classList.add('precio-servicio');
+        precioServicio.textContent = `$${precio}`;
+
+        const servicioDiv = document.createElement('DIV');
+        servicioDiv.classList.add('servicio');
+        servicioDiv.dataset.idServicio = id;
+
+        // Agregando SERVICIOS al DIV
+        servicioDiv.appendChild(nombreServicio);
+        servicioDiv.appendChild(precioServicio);
+
+        // Agregamos al div con el id="servicios" que tenemos que: view/cita/index.php
+        document.querySelector('#servicios').appendChild(servicioDiv);
+    });
 }
