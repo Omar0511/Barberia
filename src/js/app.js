@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function iniciarApp() {
+    mostrarSeccion();
     //Cambia la sessión cuando se presionen los tabs
     tabs();
 }
@@ -21,6 +22,17 @@ function mostrarSeccion() {
     const pasoSelector = `#paso-${paso}`;
     const seccion = document.querySelector(pasoSelector);
     seccion.classList.add('mostrar');
+
+    // Quita la clase actual al tab anterior
+    const tabAnterior = document.querySelector('.actual');
+
+    if (tabAnterior) {
+        tabAnterior.classList.remove('actual');
+    }
+
+    // Resalta el TAB actual
+    const tab = document.querySelector(`[data-paso="${paso}"]`);
+    tab.classList.add('actual');
 }
 
 function tabs() {
@@ -38,7 +50,7 @@ function tabs() {
             // console.log('Diste Click', e.target.dataset.paso);
             paso = parseInt(e.target.dataset.paso);
 
-            mostrarSeccion(paso);
+            mostrarSeccion();
         });
     });
 }
