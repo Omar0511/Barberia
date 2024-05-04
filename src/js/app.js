@@ -9,6 +9,20 @@ function iniciarApp() {
     tabs();
 }
 
+function mostrarSeccion() {
+    // Ocultar la seccion que tenga la clase MOSTRAR
+    const seccionAnterior = document.querySelector('.mostrar');
+    
+    if (seccionAnterior) {
+        seccionAnterior.classList.remove('mostrar');
+    }
+
+    // Seleccionar la sección con el paso...
+    const pasoSelector = `#paso-${paso}`;
+    const seccion = document.querySelector(pasoSelector);
+    seccion.classList.add('mostrar');
+}
+
 function tabs() {
     const botones = document.querySelectorAll('.tabs button');
 
@@ -23,6 +37,8 @@ function tabs() {
         boton.addEventListener('click', function(e) {
             // console.log('Diste Click', e.target.dataset.paso);
             paso = parseInt(e.target.dataset.paso);
+
+            mostrarSeccion(paso);
         });
     });
 }
