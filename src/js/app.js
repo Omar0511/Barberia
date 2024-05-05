@@ -2,6 +2,13 @@ let paso = 1;
 const pasoInicial = 1;
 const pasoFinal = 3;
 
+const cita = {
+    nombre: '',
+    fecha: '',
+    hora: '',
+    servicios: []
+};
+
 // Cuando todo el DOM este cargado, se va ejecutar esta función
 document.addEventListener('DOMContentLoaded', function() {
     iniciarApp();
@@ -145,6 +152,11 @@ function mostrarServicios(servicios) {
         const servicioDiv = document.createElement('DIV');
         servicioDiv.classList.add('servicio');
         servicioDiv.dataset.idServicio = id;
+        // SE va ejecutar cuando demos click
+        // servicioDiv.onclick = seleccionarServicio;
+        servicioDiv.onclick = function() {
+            seleccionarServicio(servicio);
+        };
 
         // Agregando SERVICIOS al DIV
         servicioDiv.appendChild(nombreServicio);
@@ -153,4 +165,13 @@ function mostrarServicios(servicios) {
         // Agregamos al div con el id="servicios" que tenemos que: view/cita/index.php
         document.querySelector('#servicios').appendChild(servicioDiv);
     });
+}
+
+function seleccionarServicio(servicio) {
+    // console.log("Desde seleccionar", servicio);
+    const { servicios } = cita;
+
+    // ... = toma una copia de servicios y le agrega servicio
+    cita.servicios = [...servicios, servicio];
+    console.log(cita);
 }
