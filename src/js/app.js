@@ -26,6 +26,8 @@ function iniciarApp() {
     paginaSiguiente();
 
     consultarAPI();
+
+    nombreCliente();
 }
 
 function mostrarSeccion() {
@@ -187,3 +189,8 @@ function seleccionarServicio(servicio) {
     }
     console.log(cita);
 }
+
+function nombreCliente() {
+    cita.nombre = document.querySelector('#nombre').value;
+}
+
