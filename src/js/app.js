@@ -132,7 +132,6 @@ async function consultarAPI() {
     } catch (error) {
         console.log(error);
     }
-
 }
 
 function mostrarServicios(servicios) {
@@ -168,10 +167,15 @@ function mostrarServicios(servicios) {
 }
 
 function seleccionarServicio(servicio) {
+    const { id } = servicio;
     // console.log("Desde seleccionar", servicio);
     const { servicios } = cita;
 
     // ... = toma una copia de servicios y le agrega servicio
     cita.servicios = [...servicios, servicio];
+
+    const divServicio = document.querySelector(`[data-id-servicio="${id}"]`);
+    divServicio.classList.toggle('seleccionado');
+
     console.log(cita);
 }
