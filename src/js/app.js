@@ -203,10 +203,35 @@ function seleccionarFecha() {
         const dia = new Date(e.target.value).getUTCDay();
 
         if ( [6, 0].includes(dia) ) {
+            e.target.value = '';
 
+            mostrarAlerta('Fines de semana no permitidos', 'error');
         } else {
             cita.fecha = e.target.value;
         }
 
     });
+}
+
+function mostrarAlerta(mensaje, tipo) {
+    // Previene que se genere más de 1 alerta
+    const alertaPrevia = document.querySelector('.alerta');
+
+    if (alertaPrevia) {
+        return;
+    }
+
+    // Scripting para crear la ALERTA
+    const alerta = document.createElement('DIV');
+    alerta.textContent = mensaje;
+    alerta.classList.add('alerta');
+    alerta.classList.add(tipo);
+
+    const formulario = document.querySelector('.formulario');
+    formulario.appendChild(alerta);
+
+    // ELIMINAR la alerta
+    setTimeout(() => {
+        alerta.remove();
+    }, 3000);
 }
