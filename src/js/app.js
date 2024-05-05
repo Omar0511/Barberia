@@ -27,7 +27,10 @@ function iniciarApp() {
 
     consultarAPI();
 
+    // Añade el nombre del cliente al OBJETO de cita
     nombreCliente();
+    // Añade la fecha de la cita en el OBJETO
+    seleccionarFecha();
 }
 
 function mostrarSeccion() {
@@ -194,3 +197,16 @@ function nombreCliente() {
     cita.nombre = document.querySelector('#nombre').value;
 }
 
+function seleccionarFecha() {
+    const inputFecha = document.querySelector('#fecha');
+    inputFecha.addEventListener('input', function(e) {
+        const dia = new Date(e.target.value).getUTCDay();
+
+        if ( [6, 0].includes(dia) ) {
+
+        } else {
+            cita.fecha = e.target.value;
+        }
+
+    });
+}
