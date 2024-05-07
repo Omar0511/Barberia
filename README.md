@@ -103,4 +103,33 @@
             - Editar un contacto PUT /clientes/3
             - Borrar un contacto DELETE /clientes/8
         - Usualmente una API es creada en JSON.
-        
+
+#### AJAX
+
+- Asynchronous JavaScript And Xml.
+- No solo es XML, puede transportar otros tipos de datos como JSON o texto plano.
+- Akax no es un lenguaje de programación, sino una combinación de distintas funciones disponibles.
+- Permite al navegador enviar y recibir datos en el fondo (background).
+
+    ## Ventjas
+
+        - Actualizar alguna parte de la página sin tener que actualizar la ventana completa.
+        - Solicitar información del Servidor.
+        - Recibir información del Servidor.
+        - Enviar información al Servidor.
+    
+    ### Notas
+
+        - Si ya tiene algo de tiempo, para poder detectarlo, este, va utilizar:
+            - **_XMLHTTPREQUEST o QUERY_**
+            - ($.ajax)
+
+#### FETCH
+
+- Es la nueva API, la nueva forma de hacer lo mismo que AJAX.
+
+    ## Notas
+
+        - Si es código nuevo, nos encontraremos con:
+            - **_fetch() o axios()_**
+        - JQUERY y AXIOS, son librerías externas.
