@@ -261,14 +261,46 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
 
 }
 
-
 function mostrarResumen() {
     const resumen = document.querySelector('.contenido-resumen');
 
-    if ( Object.values(cita).includes('') || cita.servicios.length === 0 ) {
-        mostrarAlerta('Faltan datos de Servicio, Fecha u Hora', 'error', '.contenido-resumen', false);
-    } else {
-
+    // Limpiar el contenido de resumen
+    while (resumen.firstChild) {
+        resumen.removeChild(resumen.firstChild);
     }
 
+    if ( Object.values(cita).includes('') || cita.servicios.length === 0 ) {
+        mostrarAlerta('Faltan datos de Servicio, Fecha u Hora', 'error', '.contenido-resumen', false);
+
+        return;
+    }
+
+    // Formatear el DIV de resumen
+    const { nombre, fecha, hora, servicios } = cita;
+
+    const nombreCliente = document.createElement('P');
+    nombreCliente.innerHTML = `<span>Nombre:</span> ${nombre}`;
+
+    const fechaCita = document.createElement('P');
+    fechaCita.innerHTML = `<span>Fecha:</span> ${fecha}`;
+
+    const horaCita = document.createElement('P');
+    horaCita.innerHTML = `<span>Hora:</span> ${hora}`;
+
+    servicios.forEach( servicio => {
+        const { id, precio, nombre } = servicio;
+
+        const contenedorServicio = document.createElement('DIV');
+        contenedorServicio.classList.add('contenedor-servicio');
+
+        const textoServicio = document.createElement('P');
+        textoServicio.textContent = nombre;
+
+        const precioServicio = document.createElement('P');
+        precioServicio.textContent = `<span>Precio:</span> $${precio}`;
+    });
+
+    resumen.appendChild(nombreCliente);
+    resumen.appendChild(fechaCita);
+    resumen.appendChild(horaCita);
 }
