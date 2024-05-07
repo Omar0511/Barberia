@@ -33,6 +33,8 @@ function iniciarApp() {
     seleccionarFecha();
     // Añade la hora de la cita en el OBJETO
     seleccionarHora();
+    // Muestra el RESUMEN de la CITA
+    mostrarResumen();
 }
 
 function mostrarSeccion() {
@@ -92,6 +94,7 @@ function botonesPaginador() {
     } else if (paso === 3) {
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.add('ocultar');
+        mostrarResumen();
     } else {
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.remove('ocultar');
@@ -252,4 +255,15 @@ function mostrarAlerta(mensaje, tipo) {
     setTimeout(() => {
         alerta.remove();
     }, 3000);
+}
+
+function mostrarResumen() {
+    const resumen = document.querySelector('.contenido-resumen');
+
+    if ( Object.values(cita).includes('') ) {
+
+    } else {
+
+    }
+    
 }
