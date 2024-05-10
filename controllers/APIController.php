@@ -11,7 +11,7 @@
 
         public static function guardar() {
             $respuesta = [
-                'mensaje' => 'ok'
+                'datos' => $_POST
             ];
 
             echo json_encode($respuesta);
