@@ -333,8 +333,15 @@ function mostrarResumen() {
     resumen.appendChild(nombreCliente);
     resumen.appendChild(fechaCita);
     resumen.appendChild(horaCita);
+
+    resumen.appendChild(botonReservar);
 }
 
 function reservarCita() {
-    
+    // Es como el SUBMIT, pero lo creamos con JS
+    const datos = new FormData();
+    // Agregar datos = append
+    datos.append('nombre', 'Omar');
+
+    console.log('prueba');
 }

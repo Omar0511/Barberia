@@ -133,3 +133,26 @@
         - Si es código nuevo, nos encontraremos con:
             - **_fetch() o axios()_**
         - JQUERY y AXIOS, son librerías externas.
+    
+    ### ¿Porqué utilizar Fetch API?
+    
+        - JS por si solo no puede consultar una base de datos.acciones.
+        - Un lenguaje en el servidor puede tener un Template Engine o una forma de escribir código HTML con datos de un servidor.
+        - Usualmente carga el servidor y también evita tener dinamismo en la funcionalidad.
+        - Fetch nos permite conectarnos con datos de un servidor.
+    
+    #### ¿Cómo funciona?
+
+        - Ejemplo:
+            - /clientes
+            - fetch('/api.php')
+            - Nos devuelve un JSON, puede estar la API en cualquier lenguaje, al final lo que se va manipular es el JSON
+        
+        - Fetch API, utiliza PROMISES o ASYNC / AWAIT.
+        - También hay librerpias como Axios que son un wrapper sobre Fetch que simplifican los llamados Fetch.
+        - Se pueden enviar datos de formularios o archivos por Fetch API utilizando el objeto FormData()
+        - FormData es la forma de crrar el SUBMIT pero con JAVASCRIPT
+        - Viene en el navegador y accedes a el con new FormData();
+        - Se pueden añadir string, números, objetos o archivos.
+        - FormData se puede utilizar con XMLttpRequest, $.ajax, Fetch API o AXIOS
+        
