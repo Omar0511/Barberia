@@ -8,4 +8,12 @@
             $servicios = Servicio::all();
             echo json_encode($servicios);
         }
+
+        public static function guardar() {
+            $respuesta = [
+                'mensaje' => 'ok'
+            ];
+
+            echo json_encode($respuesta);
+        }
     }

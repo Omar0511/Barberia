@@ -42,8 +42,6 @@
         <h2>Resumen</h2>
         <p class="text-center">Verifica que la información sea correcta</p>
     </div>
-
-    <a href="" class="boton">Reservar Cita</a>
     
     <div class="paginacion">
         <button id="anterior" class="boton">
