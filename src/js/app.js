@@ -210,6 +210,7 @@ function nombreCliente() {
 
 function seleccionarFecha() {
     const inputFecha = document.querySelector('#fecha');
+
     inputFecha.addEventListener('input', function(e) {
         const dia = new Date(e.target.value).getUTCDay();
 
@@ -226,12 +227,14 @@ function seleccionarFecha() {
 
 function seleccionarHora() {
     const inputHora = document.querySelector('#hora');
+
     inputHora.addEventListener('input', function(e) {
         const horaCita = e.target.value;
         const hora = horaCita.split(":")[0];
 
         if (hora < 10 || hora > 18) {
             e.target.value = '';
+            
             mostrarAlerta('Horario NO válido', 'error', '.formulario');
         } else {
             cita.hora = e.target.value;
@@ -344,7 +347,7 @@ function mostrarResumen() {
 }
 
 async function reservarCita() {
-    const { id, nombre, fecha, hora, servicios } = cita;
+    const { nombre, fecha, hora, servicios, id } = cita;
 
     const idServicios = servicios.map( servicio => servicio.id );
     // Es como el SUBMIT, pero lo creamos con JS
@@ -354,14 +357,46 @@ async function reservarCita() {
     datos.append('hora', hora);
     datos.append('usuarioId', id);
     datos.append('servicios', idServicios);
-    // Peticiones hacia la API
-    const url = 'http://localhost:3000/api/citas';
 
-    const respuesta = await fetch(url, {
-        method: 'POST',
-        boyd: datos
-    });
+    try {
+        // Peticiones hacia la API
+        const url = 'http://localhost:3000/api/citas';
 
-    const resultado = await respuesta.json();
-    console.log(resultado);
+        const respuesta = await fetch(url, {
+            method: 'POST',
+            body: datos
+        });
+
+        const resultado = await respuesta.json();
+        // console.log(resultado);
+
+        if (resultado.resultado) {
+
+            Swal.fire({
+                icon: "success",
+                title: "Cita Creada",
+                text: "Tu Cita fue creada correctamente",
+                button: 'OK'
+            }).then( () => {
+
+                setTimeout(() => {
+                    // Recarga la página
+                    window.location.reload();
+                }, 3000);
+
+            });
+
+        }
+
+    } catch (error) {
+        console.log(error);
+
+        Swal.fire({
+            icon: "error",
+            title: "error",
+            text: "Hubo un error al guardarl la cita",
+        });
+
+    }
+
 }

@@ -11,7 +11,7 @@
         public $hora; 
         public $usuarioId;
 
-        public function __construct()
+        public function __construct($args = [])
         {
             $this->id = $args['id'] ?? null; 
             $this->fecha = $args['fecha'] ?? ''; 
