@@ -3,6 +3,7 @@ const pasoInicial = 1;
 const pasoFinal = 3;
 
 const cita = {
+    id: '',
     nombre: '',
     fecha: '',
     hora: '',
@@ -27,6 +28,7 @@ function iniciarApp() {
 
     consultarAPI();
 
+    idCliente();
     // Añade el nombre del cliente al OBJETO de cita
     nombreCliente();
     // Añade la fecha de la cita en el OBJETO
@@ -198,6 +200,10 @@ function seleccionarServicio(servicio) {
     console.log(cita);
 }
 
+function idCliente() {
+    cita.id = document.querySelector('#id').value;
+}
+
 function nombreCliente() {
     cita.nombre = document.querySelector('#nombre').value;
 }
@@ -338,15 +344,15 @@ function mostrarResumen() {
 }
 
 async function reservarCita() {
-    const { nombre, fecha, hora, servicios } = cita;
+    const { id, nombre, fecha, hora, servicios } = cita;
 
     const idServicios = servicios.map( servicio => servicio.id );
     // Es como el SUBMIT, pero lo creamos con JS
     const datos = new FormData();
     // Agregar datos = append
-    datos.append('nombre', nombre);
     datos.append('fecha', fecha); 
     datos.append('hora', hora);
+    datos.append('usuarioId', id);
     datos.append('servicios', idServicios);
     // Peticiones hacia la API
     const url = 'http://localhost:3000/api/citas';
@@ -357,4 +363,5 @@ async function reservarCita() {
     });
 
     const resultado = await respuesta.json();
+    console.log(resultado);
 }
