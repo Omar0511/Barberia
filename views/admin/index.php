@@ -18,7 +18,7 @@
         <?php
             $idCita = 0;
 
-            foreach($citas as $cita) {
+            foreach($citas as $key => $cita) {
 
                 if ($idCita !== $cita->id) {                    
         ?>
@@ -31,11 +31,11 @@
 
                         <h3>Servicios</h3>
             <?php
-                    $idCita = $cita->id;
+                        $idCita = $cita->id;
                 }
             ?>
-                <p class="servicio"> <?php echo $cita->servicio . " " . $cita->precio; ?> </p>
-                    </li>
+                        <!-- Nota: no se pone el CIERRE del </li> para dejar que HTML lo cierre -->
+                        <p class="servicio"> <?php echo $cita->servicio . " " . $cita->precio; ?> </p>
         <?php } ?>
     </ul>
 </div>
