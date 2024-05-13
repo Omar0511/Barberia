@@ -7,6 +7,8 @@
     class AdminController {
         public static function index(Router $router) {
             // session_start();
+            $fecha = date('Y-m-d');
+            // debuguear($fecha);
 
             // Consultar la BD
             $consulta = "SELECT c.id, c.hora, ";
@@ -20,14 +22,15 @@
             $consulta .= "ON cs.citaId = c.id ";
             $consulta .= "INNER JOIN servicios s ";
             $consulta .= " ON s.id = cs.servicioId ";
-            // $consulta .= "WHERE fecha = '${fecha}' ";
+            $consulta .= "WHERE fecha = '${fecha}' ";
 
             $citas = AdminCita::SQL($consulta);
             // debuguear($citas);
 
             $router->render('admin/index', [
                 'nombre' => $_SESSION['nombre'],
-                'citas' => $citas
+                'citas' => $citas,
+                'fecha' => $fecha
             ]);
         }
     }
