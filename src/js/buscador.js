@@ -11,5 +11,7 @@ function buscarPorFecha() {
 
     fechaInput.addEventListener('input', function(e) {
         const fechaSeleccionada = e.target.value;
+
+        window.location = `?fecha=${fechaSeleccionada}`;
     });
 }
