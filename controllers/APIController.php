@@ -2,8 +2,8 @@
     namespace Controllers;
 
     use Model\Cita;
-use Model\CitaServicio;
-use Model\Servicio;
+    use Model\CitaServicio;
+    use Model\Servicio;
     
     class APIController {
         public static function index() {
@@ -35,6 +35,16 @@ use Model\Servicio;
             }
             
             echo json_encode( [ 'resultado' => $resultado ] );
+        }
+
+        public static function eliminar() {
+            $id = $_POST['id'];
+
+            $cita = Cita::find($id);
+
+            $cita->eliminar();
+            // Nos redirecciona a la página de donde veniamos el: HTTP_REFERER
+            header('Location:' . $_SERVER['HTTP_REFERER'] );
         }
 
     }
