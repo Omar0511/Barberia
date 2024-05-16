@@ -17,7 +17,7 @@
                 <form action="/servicios/eliminar" class="" method="POST">
                     <input type="hidden" name="id" id="id" value="<?php echo $servicio->id;?>">
 
-                    <input type="submit" value="Eliminar" class="boton-eliminar">
+                    <input type="submit" value="Borrar" class="boton-eliminar">
                 </form>
             </div>
         </li>
