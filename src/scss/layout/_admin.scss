@@ -20,3 +20,8 @@
         }
     }
 }
+
+// @extends: Hereda todo lo de citas
+.servicios {
+    @extend .citas;
+}
