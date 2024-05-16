@@ -48,7 +48,7 @@
 .barra-servicios {
     margin-bottom: v.$separacion;
 
-    @include m-tablet {
+    @include m.tablet {
         display: flex;
         justify-content: space-between;
     }
