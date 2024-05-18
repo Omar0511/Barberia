@@ -32,6 +32,41 @@
         - composer require vlucas/phpdotenv
     - Creamos un archivo:
         - .env
+- DOMCloud
+    ```
+        source: '<TuRepositorio>'
+        features:
+        - 'php 8.1'
+        - mysql
+        - ssl
+        - 'ssl always'
+        root: public_html/public
+        nginx:
+        fastcgi: 'on'
+        locations:
+            -
+            match: /
+            try_files: '$uri $uri/ /index.php$is_args$args'
+            -
+            match: '~ \.[^\/]+(?<!\.php)$'
+            try_files: '$uri =404'
+        commands:
+        - 'echo "<?php phpinfo(15);" > phpinfo.php'
+        - 'echo "display_errors = On" > .user.ini'
+        - 'echo "display_startup_errors = On" >> .user.ini'
+        - 'echo "DB_HOST=localhost" > includes/.env'
+        - 'echo "DB_USER=${USERNAME}" >> includes/.env'
+        - 'echo "DB_PASS=${PASSWORD}" >> includes/.env'
+        - 'echo "DB_NAME=${DATABASE}" >> includes/.env'
+        - 'echo "" >> includes/.env'
+        - 'echo "MAIL_HOST=tuserver" >> includes/.env'
+        - 'echo "MAIL_USER=user" >> includes/.env'
+        - 'echo "MAIL_PASSWORD=password" >> includes/.env'
+        - 'echo "MAIL_PORT=2525" >> includes/.env'
+        - 'echo "" >> includes/.env'
+        - 'echo "SERVER_HOST=https://${DOMAIN}" >> includes/.env'
+        - 'composer install'
+    ```
 
 ### Descripción
 
