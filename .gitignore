@@ -1,6 +1,6 @@
 node_modules/
 build/
-.env
+includes/.env
 includes/database.php
-/vendor/
+vendor
 .DS_Store
