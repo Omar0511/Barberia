@@ -196,4 +196,3 @@
         - Viene en el navegador y accedes a el con new FormData();
         - Se pueden añadir string, números, objetos o archivos.
         - FormData se puede utilizar con XMLttpRequest, $.ajax, Fetch API o AXIOS
-        
